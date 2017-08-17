@@ -2,10 +2,6 @@
 
 namespace Console;
 
-//require_once("lib/Console/Writer.php");
-//require_once("lib/Console/Reader.php");
-//require_once("lib/Utils/String.php");
-
 use Utils\StringUtils;
 use Exception;
 
@@ -41,7 +37,8 @@ class Console {
     public function getOptions($optionsStruct) {
         if (!is_object($optionsStruct) || !isset($optionsStruct->shortOpts) || !isset($optionsStruct->longOpts)) { return $this->opts; }
 
-        if (strpos("h", $optionsStruct->shortOpts) === false && !in_array("help", $optionsStruct->longOpts)) {
+		if ((strlen($optionsStruct->shortOpts) === 0 || strpos("h", $optionsStruct->shortOpts) === false)
+		   	&& !in_array("help", $optionsStruct->longOpts)) {
             $optionsStruct->shortOpts .= "h";
             $optionsStruct->longOpts [] = "help";
         }
@@ -77,7 +74,6 @@ class Console {
     private function checkArguments($optsStruct) {
         list($args, $opts) = $this->parseArguments();
         $opts = $this->getOptions($optsStruct);
-
         if (array_key_exists("h", $opts) || array_key_exists("help", $opts)) { $this->usage(); $this->help(); }
 
         if (count($args) === 0 || ($this->requiredParams && count($args)) < $this->requiredParams) {
