@@ -2,8 +2,6 @@
 
 namespace JSON;
 
-//require_once("lib/File/File.php");
-
 use File\File;
 use Exception;
 

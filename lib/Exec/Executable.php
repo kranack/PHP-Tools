@@ -17,9 +17,10 @@ class Executable {
 	}
 
 	private function init($argc, $argv) {
+		$requiredParams = ($this->params->requiredParams) ? $this->params->requiredParams : 1;
 		$this->console = new Console($argc, $argv);
 		$this->console->setUsage($this->params->usage);
-		$this->console->setRequiredParams(1);
+		$this->console->setRequiredParams($requiredParams);
 	}
 
 	public function run($argc, $argv) {

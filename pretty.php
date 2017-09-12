@@ -8,7 +8,7 @@ use JSON\JSON as JSONParser;
 
 $callback = function($args, $opts) {
     $pretty = true;
-    if (key_exists("u", $opts)) {
+    if (key_exists("u", $opts) || key_exists("unpretty", $opts)) {
         $pretty = false;
     }
 

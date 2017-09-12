@@ -3,6 +3,7 @@
 namespace Console;
 
 use Utils\StringUtils;
+use File\File;
 use Exception;
 
 class Console {
@@ -56,13 +57,17 @@ class Console {
 
         $this->_writer->printLine($_message);
     }
+    public function save($data, $filePath) {
+        $file = new File($filePath, true);
+        $file->setContent($data)->save();
+    }
     public function help() { $this->stop(0); }
     public function stop($code = 0) { exit($code); }
     public function exec($optsStruct, $callback) {
         list($args, $opts) = $this->checkArguments($optsStruct);
 
         try {
-            call_user_func_array($callback, [$args, $opts]);
+            call_user_func_array($callback, [$args, $opts, $this]);
         } catch(Exception $e) { $this->throwError($e); }
     }
 
@@ -76,7 +81,7 @@ class Console {
         $opts = $this->getOptions($optsStruct);
         if (array_key_exists("h", $opts) || array_key_exists("help", $opts)) { $this->usage(); $this->help(); }
 
-        if (count($args) === 0 || ($this->requiredParams && count($args)) < $this->requiredParams) {
+        if (count($args) === 0 || ($this->requiredParams && count($args) < $this->requiredParams)) {
             $this->throwError(new Exception("Parametre incorrect"));
         }
 

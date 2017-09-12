@@ -14,12 +14,14 @@ class File {
 	private $_content;
 	private $_type;
 
-	public function __construct($filename) {
+	public function __construct($filename, $create = false) {
 		$this->filename = $filename;
 		$this->_content = null;
 		$this->getType();
 
-		$this->exists($filename);
+		if (!$create) {
+			$this->exists($filename);
+		}
 	}
 
 	public function getContent() {

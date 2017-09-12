@@ -2,12 +2,11 @@
 
 ini_set("memory_limit", -1);
 
-$ver = (float)phpversion();
-if ($ver <= 7.0) {
+if (version_compare(phpversion(), '7.0.0', '<')) {
     die("Script need PHP version 7 or higher\n");
 }
 
-set_include_path(get_include_path() . PATH_SEPARATOR . '/Users/damiencalesse/dev/php');
+set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
 
 
 spl_autoload_register(function($class) {
