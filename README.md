@@ -13,3 +13,11 @@
 ### Prime
 
  Is a number prime ?
+
+### Range
+
+ Ask a range
+
+### Ask
+
+ Test of interactive prompt
