@@ -21,3 +21,7 @@
 ### Ask
 
  Test of interactive prompt
+
+ ### Shell
+
+  Test of interactive prompt as shell (with a list of commands)

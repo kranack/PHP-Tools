@@ -18,6 +18,7 @@ class Console {
     private $requiredParams;
     private $isInteractive;
     private $itCallback;
+    private $helpCallback;
     private $usage;
 
     public function __construct($argc, $argv) {
@@ -29,11 +30,13 @@ class Console {
         $this->isInteractive = false;
         $this->itCallback = null;
         $this->usage = null;
+        $this->helpCallback = null;
         $this->_writer = new Writer();
         $this->_reader = new Reader();
     }
 
     public function setUsage($usageStr) { $this->usage = $usageStr; }
+    public function setHelp($helpCallback) { $this->helpCallback = $helpCallback; }
     public function setRequiredParams($required) { $this->requiredParams = $required; }
     public function setInteractive($itCallback) { $this->isInteractive = true; $this->itCallback = $itCallback; }
     public function isInteractive() { return $this->isInteractive; }
@@ -72,7 +75,7 @@ class Console {
         $file = new File($filePath, true);
         $file->setContent($data)->save();
     }
-    public function help() { $this->stop(0); }
+    public function help() { ($this->helpCallback) ? $this->call($this->helpCallback) : $this->stop(0); }
     public function stop($code = 0) { exit($code); }
     public function exec($optsStruct, $callback) {
         list($args, $opts) = $this->checkArguments($optsStruct);

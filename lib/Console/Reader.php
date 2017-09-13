@@ -2,6 +2,8 @@
 
 namespace Console;
 
+use Exception;
+
 class Reader {
 	
 	private $_stdin;
@@ -20,10 +22,9 @@ class Reader {
 
 	public function listen() {
 		$line = $this->getLine();
-		if ($line === "quit") {
+		/*if ($line === "quit" || $line === "q") {
 			throw new Exception("User aborted");
-		}
-
+		}*/
 		return $line;
 	}
 

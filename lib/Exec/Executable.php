@@ -27,6 +27,10 @@ class Executable {
 		if ($isInteractive && $this->params->itCallback) {
 			$this->console->setInteractive($this->params->itCallback);
 		}
+		
+		if ($this->params->helpCallback) {
+			$this->console->setHelp($this->params->helpCallback);
+		}
 	}
 
 	public function run($argc, $argv) {
