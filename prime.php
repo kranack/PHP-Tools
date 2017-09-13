@@ -12,6 +12,7 @@ $callback = function($args, $opts) {
 }; 
 
 $params = new Params([
+	"requiredParams" => 1,
 	(object) [
 		"key" 	=> "optsStruct",
 		"value"	=> (object) [

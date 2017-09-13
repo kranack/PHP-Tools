@@ -27,10 +27,7 @@ $params = new Params([
 			"longOpts"	=> ["filename"]
 		]
 	],
-	(object) [
-		"key"	=> "requiredParams",
-		"value"	=> 2
-	],
+	"requiredParams" => 2,
 	(object) [
 		"key"	=> "usage",
 		"value"	=> "USAGE : " . __FILE__ . " [opts] start end"

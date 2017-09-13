@@ -2,6 +2,8 @@
 
 namespace File;
 
+use Exception;
+
 abstract class FileType {
 	const Folder = 0;
 	const File = 1;
@@ -29,7 +31,7 @@ class File {
 			$this->_content = file_get_contents($this->filename);	
 		}
 
-        if ($this->_content === false) { throw new Exception("Recup impossible"); }
+        if ($this->_content === false) { throw new Exception("Cannot get file content"); }
 
         return $this->_content;
     }
@@ -58,10 +60,10 @@ class File {
 
     private function exists() {
         if (!file_exists($this->filename)) {
-            throw new Exception("Fichier introuvable");
+            throw new Exception("File not found");
         }
         if (!is_readable($this->filename)) {
-        	throw new Exception("Fichier non lisible");
+        	throw new Exception("File not readable");
         }
     }
 
