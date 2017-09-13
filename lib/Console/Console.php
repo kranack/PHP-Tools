@@ -16,6 +16,8 @@ class Console {
 
     private $opts;
     private $requiredParams;
+    private $isInteractive;
+    private $itCallback;
     private $usage;
 
     public function __construct($argc, $argv) {
@@ -24,13 +26,17 @@ class Console {
         $this->opts = [];
 
         $this->requiredParams = 0;
+        $this->isInteractive = false;
+        $this->itCallback = null;
         $this->usage = null;
         $this->_writer = new Writer();
-        //$this->_reader = new Reader();
+        $this->_reader = new Reader();
     }
 
     public function setUsage($usageStr) { $this->usage = $usageStr; }
     public function setRequiredParams($required) { $this->requiredParams = $required; }
+    public function setInteractive($itCallback) { $this->isInteractive = true; $this->itCallback = $itCallback; }
+    public function isInteractive() { return $this->isInteractive; }
 
     public function usage() {
         if ($this->usage) { $this->print($this->usage); }
@@ -57,6 +63,11 @@ class Console {
 
         $this->_writer->printLine($_message);
     }
+    public function ask($message) {
+        if (substr($message, -1) !== " ") { $message .= " "; }
+        $this->_writer->print($message);
+        return $this->_reader->listen();
+    }
     public function save($data, $filePath) {
         $file = new File($filePath, true);
         $file->setContent($data)->save();
@@ -67,8 +78,15 @@ class Console {
         list($args, $opts) = $this->checkArguments($optsStruct);
 
         try {
-            call_user_func_array($callback, [$args, $opts, $this]);
+            if ($this->isInteractive && $this->itCallback) { $this->call($this->itCallback, [$args, $opts]); }
+            
+            $this->call($callback, [$args, $opts]);
         } catch(Exception $e) { $this->throwError($e); }
+    }
+
+    private function call($callback, $args = []) {
+        $args [] = $this;
+        call_user_func_array($callback, $args);
     }
 
     private function throwError(Exception $exception) {
@@ -81,7 +99,7 @@ class Console {
         $opts = $this->getOptions($optsStruct);
         if (array_key_exists("h", $opts) || array_key_exists("help", $opts)) { $this->usage(); $this->help(); }
 
-        if (count($args) === 0 || ($this->requiredParams && count($args) < $this->requiredParams)) {
+        if (count($args) < $this->requiredParams) {
             $this->throwError(new Exception("Parametre incorrect"));
         }
 

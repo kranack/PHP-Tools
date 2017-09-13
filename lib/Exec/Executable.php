@@ -17,10 +17,16 @@ class Executable {
 	}
 
 	private function init($argc, $argv) {
-		$requiredParams = ($this->params->requiredParams) ? $this->params->requiredParams : 1;
+		$requiredParams = ($this->params->requiredParams) ? $this->params->requiredParams : 0;
+		$isInteractive = !!$this->params->interactive;
+
 		$this->console = new Console($argc, $argv);
 		$this->console->setUsage($this->params->usage);
 		$this->console->setRequiredParams($requiredParams);
+
+		if ($isInteractive && $this->params->itCallback) {
+			$this->console->setInteractive($this->params->itCallback);
+		}
 	}
 
 	public function run($argc, $argv) {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Console;
+
 class Reader {
 	
 	private $_stdin;
@@ -14,6 +16,15 @@ class Reader {
 
 	public function getLine() {
 		return trim(fgets($this->_stdin));
+	}
+
+	public function listen() {
+		$line = $this->getLine();
+		if ($line === "quit") {
+			throw new Exception("User aborted");
+		}
+
+		return $line;
 	}
 
 }
