@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mikey179/vfsStream": "^1.6",
+        "phpunit/phpunit": "^5.7"
+    }
+}

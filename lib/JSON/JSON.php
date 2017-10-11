@@ -9,8 +9,11 @@ class JSON {
 
     private $_file;
 
-    public function __construct($filename) {
-        $this->_file = new File($filename);
+    public function __construct($file) {
+        if (!is_a($file, "File")) {
+            $file = new File($file);
+        }
+        $this->_file = $file;
     }
 
     public function unpretty() {

@@ -32,10 +32,10 @@
 Aliases for direct use in shell (Linux/Mac)
 
 ```
-	alias pretty='php71 /path/to/dir/pretty.php '
-	alias unpretty='php71 /path/to/dir/pretty.php -u '
-	alias prime='php71 /path/to/dir/prime.php '
-	alias range='php71 /path/to/dir/range.php '
-	alias ask='php71 /path/to/dir/ask.php'
-	alias shell='php71 /path/to/dir/shell.php'
+	alias pretty='php71 /path/to/dir/bin/pretty.php '
+	alias unpretty='php71 /path/to/dir/bin/pretty.php -u '
+	alias prime='php71 /path/to/dir/bin/prime.php '
+	alias range='php71 /path/to/dir/bin/range.php '
+	alias ask='php71 /path/to/dir/bin/ask.php'
+	alias shell='php71 /path/to/dir/bin/shell.php'
 ```

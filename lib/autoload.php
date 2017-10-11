@@ -18,7 +18,7 @@ spl_autoload_register(function($class) {
 		if (file_exists($path)) { 
 	   		require_once($path);
 		} else {
-			throw new Exception("Fichier introuvable [" . $path . "]");
+			//throw new Exception("Fichier introuvable [" . $path . "]");
 		}
 	//} else {
 	//	throw new Exception("Impossible de charger la classe [" . $class . "]");
