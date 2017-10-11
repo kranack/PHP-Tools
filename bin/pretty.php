@@ -1,6 +1,6 @@
 <?php
 
-require_once("lib/autoload.php");
+require_once("require.php");
 
 use Exec\Executable;
 use Exec\Params;

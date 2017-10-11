@@ -1,0 +1,39 @@
+<?php
+
+ini_set("memory_limit", -1);
+
+$ver = (float)phpversion();
+if ($ver <= 7.0) {
+    die("Script need PHP version 7 or higher\n");
+}
+
+set_include_path(get_include_path() . PATH_SEPARATOR . '/Users/damiencalesse/dev/php');
+
+require_once("lib/autoload.php");
+
+//require_once("lib/Console/Console.php");
+//require_once("lib/JSON/JSON.php");
+
+use Console\Console;
+use JSON\JSON as JSONParser;
+
+
+$optsStruct = (object) [
+    "shortOpts" => "u",
+    "longOpts"  => ["unpretty"]
+];
+
+$console = new Console($argc, $argv);
+$console->setusage("USAGE : " . __FILE__ . " [opts] filename");
+$console->setRequiredParams(1);
+
+$console->exec($optsStruct, function($args, $opts) {
+    $pretty = true;
+    if (key_exists("u", $opts)) {
+        $pretty = false;
+    }
+
+    $parser = new JSONParser($args[0]);
+    if ($pretty) $parser->pretty();
+    else $parser->unpretty();
+});
