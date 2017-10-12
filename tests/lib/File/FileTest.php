@@ -30,16 +30,13 @@ class FileTest extends TestCase
         $this->assertFalse($file->isLink());
     }
 
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage File not found
+     */
     public function testFileNotExists()
     {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("File not found");
-
         $file = new File("file/not/found.pdf");
-
-        $this->assertTrue($file->isFile());
-        $this->assertFalse($file->isFolder());
-        $this->assertFalse($file->isLink());
     }
 
     public function testFileIsDir()
