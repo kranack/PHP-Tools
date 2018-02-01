@@ -28,7 +28,7 @@
   
 ### Sanitize
 
-	Replace UTF-8 characters with their equilvalents ASCII characters
+   Replace UTF-8 characters with their equivalents ASCII characters
   
 ## Aliases
 
