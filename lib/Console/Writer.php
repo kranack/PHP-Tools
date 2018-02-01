@@ -13,8 +13,8 @@ class Writer {
 	private $_stderr;
 
 	public function __construct($stdout = null, $stderr = null) {
-		$this->_stdout = $stdout;
-		$this->_stderr = $stderr;
+		$this->_stdout = ($stdout) ? $stdout : STDOUT;
+		$this->_stderr = ($stderr) ? $stderr : STDERR;
 	}
 
 	public function print($message, $channel = ChannelType::Stdout) {

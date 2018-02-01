@@ -11,7 +11,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
 
 spl_autoload_register(function($class) {
 	//if (strtolower(substr($class, 0, 3)) === "lib") {
-		if (class_exists($className) || interface_exists($className) || trait_exists($className)) {
+		if (class_exists($class) || interface_exists($class) || trait_exists($class)) {
 			return;
 		}
 		$path = __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . ".php";

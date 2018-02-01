@@ -34,7 +34,15 @@ class File {
         if ($this->_content === false) { throw new Exception("Cannot get file content"); }
 
         return $this->_content;
-    }
+	}
+	
+	public function read() {
+		$handle = fopen($this->filename, "rb");
+		$contents = fread($handle, filesize($this->filename));
+		fclose($handle);
+
+		return $contents;
+	}
 
     public function getType() {
     	if (is_dir($this->filename)) $this->_type = FileType::Folder;

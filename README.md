@@ -26,6 +26,9 @@
 
   Test of interactive prompt as shell (with a list of commands)
   
+### Sanitize
+
+	Replace UTF-8 characters with their equilvalents ASCII characters
   
 ## Aliases
 
@@ -38,4 +41,5 @@ Aliases for direct use in shell (Linux/Mac)
 	alias range='php71 /path/to/dir/bin/range.php '
 	alias ask='php71 /path/to/dir/bin/ask.php'
 	alias shell='php71 /path/to/dir/bin/shell.php'
+	alias sanitize='php71 /path/to/dir/bin/sanitize'
 ```
