@@ -58,6 +58,8 @@ class Console {
         return $this->opts;
     }
     public function print($message, $dump = false) {
+        $message = htmlspecialchars($message);
+        
         if ($dump) {
             ob_start();
             var_dump($message);

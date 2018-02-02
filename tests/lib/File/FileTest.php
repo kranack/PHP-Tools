@@ -36,7 +36,7 @@ class FileTest extends TestCase
      */
     public function testFileNotExists()
     {
-        $file = new File("file/not/found.pdf");
+        new File("file/not/found.pdf");
     }
 
     public function testFileIsDir()

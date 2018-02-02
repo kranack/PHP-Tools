@@ -52,7 +52,7 @@ class WriterTest extends TestCase
 
         $writer = new Writer($out, $err);
 
-        $writer->print('stdErr message', ChannelType::Stderr);
+        $writer->print('stdErr message', ChannelType::STDERR);
 
         fclose($out);
         fclose($err);
@@ -92,7 +92,7 @@ class WriterTest extends TestCase
 
         $writer = new Writer($out, $err);
 
-        $writer->printLine('stdErr message', ChannelType::Stderr);
+        $writer->printLine('stdErr message', ChannelType::STDERR);
 
         fclose($out);
         fclose($err);

@@ -3,8 +3,8 @@
 namespace Console;
 
 abstract class ChannelType {
-	const Stdout = 0;
-	const Stderr = 1;
+	const STDOUT = 0;
+	const STDERR = 1;
 }
 
 class Writer {
@@ -17,19 +17,19 @@ class Writer {
 		$this->_stderr = ($stderr) ? $stderr : STDERR;
 	}
 
-	public function print($message, $channel = ChannelType::Stdout) {
+	public function print($message, $channel = ChannelType::STDOUT) {
 		switch($channel) {
-			case ChannelType::Stderr:
+			case ChannelType::STDERR:
 				$this->writeStderr($message);
 				break;
-			case ChannelType::Stdout:
+			case ChannelType::STDOUT:
 			default:
 				$this->writeStdout($message);
 				break;
 		}
 	}
 
-	public function printLine($message, $channel = ChannelType::Stdout) {
+	public function printLine($message, $channel = ChannelType::STDOUT) {
 		$this->print($message . "\n", $channel);
 	}
 
