@@ -1,15 +1,30 @@
 <?php
 
-class Folder {
+namespace File;
+
+class Folder extends AbstractFile {
 	
-	private $path;
-
-	public function __construct($folderPath) {
-		$this->path = $folderPath;
+	public function getContent() {
+		// NYI
+        return null;
 	}
 
+	public function setContent($content) {
+		// NYI
+    	return $this;
+    }
+	
 	public function read() {
-		
+		$files = array_map(function($file) {
+			return new File($file);
+		}, glob($this->getPath() . DIRECTORY_SEPARATOR . "*"));
+
+		return $files;
 	}
+
+    public function save() {
+		// NYI
+    	return $this;
+    }
 
 }
