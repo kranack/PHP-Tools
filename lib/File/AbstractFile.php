@@ -5,9 +5,9 @@ namespace File;
 use Exception;
 
 abstract class FileType {
-	const Folder = 0;
-	const File = 1;
-	const Link = 2;
+	const FOLDER = 0;
+	const FILE = 1;
+	const LINK = 2;
 }
 
 abstract class AbstractFile {
@@ -31,16 +31,16 @@ abstract class AbstractFile {
 	}
 
     public function getType() {
-    	if (is_dir($this->path)) $this->_type = FileType::Folder;
-    	else if (is_link($this->path)) $this->_type = FileType::Link;
-    	else $this->_type = FileType::File;
+    	if (is_dir($this->path)) $this->_type = FileType::FOLDER;
+    	else if (is_link($this->path)) $this->_type = FileType::LINK;
+    	else $this->_type = FileType::FILE;
 
     	return $this->_type;
     }
 
-    public function isFile() { return $this->_type === FileType::File; }
-    public function isFolder() { return $this->_type === FileType::Folder; }
-    public function isLink() { return  $this->_type === FileType::Link; }
+    public function isFile() { return $this->_type === FileType::FILE; }
+    public function isFolder() { return $this->_type === FileType::FOLDER; }
+    public function isLink() { return  $this->_type === FileType::LINK; }
 
     private function exists() {
         if (!file_exists($this->path)) {
