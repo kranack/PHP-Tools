@@ -16,6 +16,10 @@
         "test": [
             "@lint",
             "phpunit"
-        ]
+		],
+		"coverage": [
+			"@lint",
+			"phpunit --coverage-clover build/logs/clover.xml"
+		]
 	}
 }
