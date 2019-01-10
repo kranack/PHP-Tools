@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 require_once("require.php");
@@ -15,7 +16,7 @@ $callback = function($args, $opts, $console) {
 		$start = intval($args[0]);
 		$end = intval($args[1]);
 
-		$console->print(range($start, $end));
+		$console->print(implode(' ', range($start, $end)));
 	}
 }; 
 

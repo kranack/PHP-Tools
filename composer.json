@@ -1,7 +1,21 @@
 {
     "require-dev": {
+		"phpunit/phpunit": "^7.4",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "jakub-onderka/php-console-highlighter": "^0.4.0",
         "mikey179/vfsStream": "^1.6",
-        "phpunit/phpunit": "^5.7",
         "codacy/coverage": "dev-master"
-    }
+	},
+	"require": {
+		"php": "^7.1"
+	},
+	"scripts": {
+		"lint-lib": "parallel-lint lib",
+		"lint-bin": "parallel-lint bin",
+		"lint": [ "@lint-lib", "@lint-bin" ],
+        "test": [
+            "@lint",
+            "phpunit"
+        ]
+	}
 }
