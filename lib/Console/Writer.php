@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Tools\Console;
 
 abstract class ChannelType {
 	const STDOUT = 0;

@@ -21,5 +21,15 @@
 			"@lint",
 			"phpunit --coverage-clover build/logs/clover.xml"
 		]
+	},
+	"autoload": {
+		"psr-4": {
+			"Tools\\": "lib/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tools\\Test\\": "tests/lib/"
+		}
 	}
 }

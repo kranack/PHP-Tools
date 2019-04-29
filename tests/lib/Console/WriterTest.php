@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once("lib/autoload.php");
 require_once("vendor/autoload.php");
 
-use Console\Writer;
-use Console\ChannelType;
+use Tools\Console\Writer;
+use Tools\Console\ChannelType;
 use PHPUnit\Framework\TestCase;
 use org\bovigo\vfs\vfsStream,
     org\bovigo\vfs\vfsStreamDirectory;

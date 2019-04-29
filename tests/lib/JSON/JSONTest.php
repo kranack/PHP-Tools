@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once("lib/autoload.php");
 require_once("vendor/autoload.php");
 
-use File\File;
-use JSON\JSON;
+use Tools\File\File;
+use Tools\JSON\JSON;
 use PHPUnit\Framework\TestCase;
 
 class JSONTest extends TestCase

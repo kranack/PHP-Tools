@@ -3,8 +3,8 @@
 
 require_once("require.php");
 
-use Exec\Executable;
-use Exec\Params;
+use Tools\Exec\Executable;
+use Tools\Exec\Params;
 
 $callback = function($args, $opts) {
 	$number = intval($args[0]);

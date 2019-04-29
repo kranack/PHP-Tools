@@ -1,8 +1,8 @@
 <?php
 
-namespace Exec;
+namespace Tools\Exec;
 
-use Console\Console;
+use Tools\Console\Console;
 
 class Executable {
 

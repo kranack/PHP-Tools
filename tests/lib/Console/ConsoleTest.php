@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once("lib/autoload.php");
 require_once("vendor/autoload.php");
 
-use Console\Console;
+use Tools\Console\Console;
 use PHPUnit\Framework\TestCase;
 
 class ConsoleTest extends TestCase

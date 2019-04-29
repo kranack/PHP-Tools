@@ -10,7 +10,11 @@ use Tools\File\File;
 use Tools\UTF8\UTF8;
 
 $callback = function($args, $opts) {
-    UTF8::sanitize(new File($args[0]));
+	$content = (new File($args[0]))->read();
+	
+	$object = unserialize(base64_decode($content));
+
+	var_dump($object);
 }; 
 
 $params = new Params([
@@ -24,7 +28,7 @@ $params = new Params([
 	],
 	(object) [
 		"key"	=> "usage",
-		"value"	=> "USAGE : " . __FILE__ . " [opts] filename"
+		"value"	=> "USAGE : " . __FILE__ . " [opts] serializedObject"
 	],
 	(object) [
 		"key"	=> "callback",

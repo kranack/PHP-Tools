@@ -1,6 +1,6 @@
 <?php
 
-namespace Shell\Command;
+namespace Tools\Shell\Command;
 
 class Command {
 

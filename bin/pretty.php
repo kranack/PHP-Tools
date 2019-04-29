@@ -3,9 +3,9 @@
 
 require_once("require.php");
 
-use Exec\Executable;
-use Exec\Params;
-use JSON\JSON as JSONParser;
+use Tools\Exec\Executable;
+use Tools\Exec\Params;
+use Tools\JSON\JSON as JSONParser;
 
 $callback = function($args, $opts) {
     $pretty = true;

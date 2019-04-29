@@ -3,8 +3,8 @@
 
 require_once("require.php");
 
-use Exec\Executable;
-use Exec\Params;
+use Tools\Exec\Executable;
+use Tools\Exec\Params;
 
 $callback = function($args, $opts, $console) {
 	if (key_exists("f", $opts) || key_exists("filename", $opts)) {

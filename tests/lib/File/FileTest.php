@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once("lib/autoload.php");
 require_once("vendor/autoload.php");
 
-use File\File;
+use Tools\File\File;
 use PHPUnit\Framework\TestCase;
 use org\bovigo\vfs\vfsStream,
     org\bovigo\vfs\vfsStreamDirectory;

@@ -3,8 +3,8 @@
 
 require_once("require.php");
 
-use Exec\Executable;
-use Exec\Params;
+use Tools\Exec\Executable;
+use Tools\Exec\Params;
 
 $itCallback = function($args, $opts, $console) {
     $response = $console->ask("How are you?");

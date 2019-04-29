@@ -1,9 +1,9 @@
 <?php
 
-namespace UTF8;
+namespace Tools\UTF8;
 
-use File\File;
-use File\Folder;
+use Tools\File\File;
+use Tools\File\Folder;
 
 class UTF8 {
 

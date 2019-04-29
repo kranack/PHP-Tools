@@ -1,9 +1,9 @@
 <?php
 
-namespace Console;
+namespace Tools\Console;
 
-use Utils\StringUtils;
-use File\File;
+use Tools\Utils\StringUtils;
+use Tools\File\File;
 use Exception;
 
 class Console {

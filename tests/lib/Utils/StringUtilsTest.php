@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once("lib/autoload.php");
 require_once("vendor/autoload.php");
 
-use Utils\StringUtils;
+use Tools\Utils\StringUtils;
 use PHPUnit\Framework\TestCase;
 
 class StringUtilsTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Tools\Console;
 
 use Exception;
 

@@ -3,9 +3,9 @@
 
 require_once("require.php");
 
-use Exec\Executable;
-use Exec\Params;
-use Shell\Shell;
+use Tools\Exec\Executable;
+use Tools\Exec\Params;
+use Tools\Shell\Shell;
 
 
 $shell = new Shell();

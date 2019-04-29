@@ -1,6 +1,6 @@
 <?php
 
-namespace Exec;
+namespace Tools\Exec;
 
 class Params {
 

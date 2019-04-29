@@ -1,8 +1,8 @@
 <?php
 
-namespace JSON;
+namespace Tools\JSON;
 
-use File\File;
+use Tools\File\File;
 use Exception;
 
 class JSON {

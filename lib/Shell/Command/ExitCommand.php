@@ -1,8 +1,8 @@
 <?php
 
-namespace Shell\Command;
+namespace Tools\Shell\Command;
 
-use Shell\Shell;
+use Tools\Shell\Shell;
 
 class ExitCommand extends Command {
 

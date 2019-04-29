@@ -1,9 +1,9 @@
 <?php
 
-namespace Shell;
+namespace Tools\Shell;
 
-use Shell\Command\HelpCommand;
-use Shell\Command\ExitCommand;
+use Tools\Shell\Command\HelpCommand;
+use Tools\Shell\Command\ExitCommand;
 
 class Shell {
 
