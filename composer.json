@@ -7,7 +7,7 @@
         "codacy/coverage": "dev-master"
 	},
 	"require": {
-		"php": "^7.1"
+		"php": "^7.2"
 	},
 	"scripts": {
 		"lint-lib": "parallel-lint lib",
