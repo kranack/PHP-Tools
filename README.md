@@ -1,10 +1,13 @@
 # PHP Tools
 
+![GitHub release](https://img.shields.io/github/release-pre/kranack/PHP-Tools.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/kranack/PHP-Tools.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/34330ddd0fd04c4084f69e487960ee5e)](https://www.codacy.com/app/kranack/PHP-Tools?utm_source=github.com&utm_medium=referral&utm_content=kranack/PHP-Tools&utm_campaign=badger)
+![GitHub](https://img.shields.io/github/license/kranack/PHP-Tools.svg)
 
 ## Requirements
 
-- PHP v.7+
+- PHP v.7.2+
 
 ## Tools
 
