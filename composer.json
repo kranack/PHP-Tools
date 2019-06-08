@@ -1,4 +1,7 @@
 {
+	"name": "kranack/php-tools",
+	"description": "PHP Tools",
+	"version": "0.2.2",
     "require-dev": {
 		"phpunit/phpunit": "^8.1",
         "jakub-onderka/php-parallel-lint": "^1.0",
