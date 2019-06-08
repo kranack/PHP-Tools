@@ -1,13 +1,12 @@
 <?php
 declare(strict_types=1);
 
-require_once("vendor/autoload.php");
+use PHPUnit\Framework\TestCase;
+use org\bovigo\vfs\vfsStream,
+	org\bovigo\vfs\vfsStreamDirectory;
 
 use Tools\Console\Writer;
 use Tools\Console\ChannelType;
-use PHPUnit\Framework\TestCase;
-use org\bovigo\vfs\vfsStream,
-    org\bovigo\vfs\vfsStreamDirectory;
 
 class WriterTest extends TestCase
 {

@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once("vendor/autoload.php");
+use PHPUnit\Framework\TestCase;
 
 use Tools\Shell\Shell;
 use Tools\Shell\Command\ExitCommand;
-use PHPUnit\Framework\TestCase;
 
 class ExitCommandTest extends TestCase
 {

@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once("vendor/autoload.php");
+use PHPUnit\Framework\TestCase;
 
 use Tools\File\File;
 use Tools\JSON\JSON;
-use PHPUnit\Framework\TestCase;
 
 class JSONTest extends TestCase
 {
@@ -24,7 +23,7 @@ class JSONTest extends TestCase
         
         $file->expects($this->once())
              ->method('save')
-             ->willReturn(true);
+             ->willReturn($file);
 
         $json = new JSON($file);
         $json->unpretty();

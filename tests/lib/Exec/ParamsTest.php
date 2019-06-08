@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once("vendor/autoload.php");
+use PHPUnit\Framework\TestCase;
 
 use Tools\Exec\Params;
-use PHPUnit\Framework\TestCase;
 
 class ParamsTest extends TestCase
 {

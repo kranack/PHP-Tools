@@ -1,12 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require_once("vendor/autoload.php");
-
-use Tools\File\File;
 use PHPUnit\Framework\TestCase;
 use org\bovigo\vfs\vfsStream,
-    org\bovigo\vfs\vfsStreamDirectory;
+	org\bovigo\vfs\vfsStreamDirectory;
+
+use Tools\File\File;
 
 class FileTest extends TestCase
 {
