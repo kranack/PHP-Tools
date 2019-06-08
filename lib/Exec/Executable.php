@@ -4,19 +4,32 @@ namespace Tools\Exec;
 
 use Tools\Console\Console;
 
-class Executable {
+class Executable
+{
 
+	/**
+	 * Console
+	 *
+	 * @var Console|null
+	 */
 	private $console;
 
+	/**
+	 * Parameters
+	 *
+	 * @var Params
+	 */
 	private $params;
 
-	public function __construct(Params $params) {
+	public function __construct(Params $params)
+	{
 		$this->params = $params;
 
 		$this->console = null;
 	}
 
-	private function init($argc, $argv) {
+	private function init(int $argc, array $argv) : void
+	{
 		$requiredParams = ($this->params->requiredParams) ? $this->params->requiredParams : 0;
 		$isInteractive = !!$this->params->interactive;
 
@@ -33,7 +46,8 @@ class Executable {
 		}
 	}
 
-	public function run($argc, $argv) {
+	public function run(int $argc, array $argv) : void
+	{
 		if ($this->console === null) {
 			$this->init($argc, $argv);
 		}

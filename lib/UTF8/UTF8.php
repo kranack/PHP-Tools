@@ -2,12 +2,13 @@
 
 namespace Tools\UTF8;
 
-use Tools\File\File;
-use Tools\File\Folder;
+use Tools\File\{ File, Folder };
 
-class UTF8 {
+class UTF8
+{
 
-    public static function sanitize(File $file) {
+	public static function sanitize(File $file) : void
+	{
         // Folder
         if ($file->isFolder()) {
             $file = new Folder($file->getPath());
@@ -29,7 +30,8 @@ class UTF8 {
         $file->setContent($fileContents)->save();
     }
 
-    public static function getUTF8ToASCII() {
+	public static function getUTF8ToASCII() : array
+	{
         return [
             chr(0xC2) . chr(0xA0)    => ' '     // Espace insécable
         ];

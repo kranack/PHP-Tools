@@ -2,29 +2,41 @@
 
 namespace Tools\Shell;
 
-use Tools\Shell\Command\HelpCommand;
-use Tools\Shell\Command\ExitCommand;
+use Tools\Shell\Command\{ Command, ExitCommand, HelpCommand };
 
-class Shell {
+class Shell
+{
 
+	/**
+	 * Commands
+	 *
+	 * @var array
+	 */
 	private $commands;
 
+	/**
+	 * Is running
+	 *
+	 * @var bool
+	 */
 	private $running;
 	
-	public function __construct(array $commands = []) {
+	public function __construct(array $commands = [])
+	{
 		$this->commands = $commands;
 		$this->running = true;
 
 		$this->init();
 	}
 
-	public function getCommands() { return $this->commands; }
+	public function getCommands() : array { return $this->commands; }
 
-	public function isRunning() { return $this->running; }
+	public function isRunning() : bool { return $this->running; }
 
-	public function stop() { $this->running = false; }
+	public function stop() : void { $this->running = false; }
 
-	public function exec($cmd) {
+	public function exec(string $cmd) : ?Command
+	{
 		$commands = array_filter($this->commands, function($command) use ($cmd) {
 			return $command->match($cmd);
 		});
@@ -32,13 +44,15 @@ class Shell {
 		return (count($commands)) ? reset($commands) : null;
 	}
 
-	private function init() {
+	private function init() : void
+	{
 		if (count($this->commands) === 0) {
 			$this->initDefaultCommands();
 		}
 	}
 
-	private function initDefaultCommands() {
+	private function initDefaultCommands() : void
+	{
 		$this->commands = [
 			new HelpCommand(),
 			new ExitCommand($this)

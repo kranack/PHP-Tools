@@ -2,15 +2,16 @@
 
 namespace Tools\Utils;
 
-class StringUtils {
+class StringUtils
+{
 
-	public static function startsWith($haystack, $needle)
+	public static function startsWith(string $haystack, string $needle) : bool
     {
          $length = strlen($needle);
          return (substr($haystack, 0, $length) === $needle);
     }
 
-    public static function endsWith($haystack, $needle)
+    public static function endsWith(string $haystack, string $needle) : bool
     {
         $length = strlen($needle);
         if ($length == 0) {

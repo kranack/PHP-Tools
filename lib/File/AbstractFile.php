@@ -12,11 +12,29 @@ abstract class FileType {
 
 abstract class AbstractFile {
 	
+	/**
+	 * File path
+	 *
+	 * @var string
+	 */
 	protected $path;
+
+	/**
+	 * File content
+	 *
+	 * @var string|null
+	 */
 	protected $_content;
+
+	/**
+	 * File type
+	 *
+	 * @var int|null
+	 */
 	protected $_type;
 
-	public function __construct($path, $create = false) {
+	public function __construct(string $path, bool $create = false)
+	{
 		$this->path = $path;
 		$this->_content = null;
 		$this->getType();
@@ -26,11 +44,13 @@ abstract class AbstractFile {
 		}
 	}
 
-	public function getPath() {
+	public function getPath() : string
+	{
 		return $this->path;
 	}
 
-    public function getType() {
+	public function getType() : int
+	{
     	if (is_dir($this->path)) $this->_type = FileType::FOLDER;
     	else if (is_link($this->path)) $this->_type = FileType::LINK;
     	else $this->_type = FileType::FILE;
@@ -38,23 +58,24 @@ abstract class AbstractFile {
     	return $this->_type;
     }
 
-    public function isFile() { return $this->_type === FileType::FILE; }
-    public function isFolder() { return $this->_type === FileType::FOLDER; }
-    public function isLink() { return  $this->_type === FileType::LINK; }
+    public function isFile() : bool { return $this->_type === FileType::FILE; }
+    public function isFolder() : bool { return $this->_type === FileType::FOLDER; }
+    public function isLink() : bool { return  $this->_type === FileType::LINK; }
 
-    private function exists() {
+	private function exists() : void
+	{
         if (!file_exists($this->path)) {
-            throw new Exception("File not found");
+            throw new Exception('File not found');
         }
         if (!is_readable($this->path)) {
-        	throw new Exception("File not readable");
+        	throw new Exception('File not readable');
         }
     }
 
-    abstract public function getContent();
-    abstract public function setContent($content);
+    abstract public function getContent() : ?string;
+    abstract public function setContent(string $content) : AbstractFile;
     
     abstract public function read();
-    abstract public function save();
+    abstract public function save() : AbstractFile;
 
 }

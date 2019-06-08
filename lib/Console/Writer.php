@@ -7,17 +7,20 @@ abstract class ChannelType {
 	const STDERR = 1;
 }
 
-class Writer {
+class Writer
+{
 	
 	private $_stdout;
 	private $_stderr;
 
-	public function __construct($stdout = null, $stderr = null) {
+	public function __construct($stdout = null, $stderr = null)
+	{
 		$this->_stdout = ($stdout) ? $stdout : STDOUT;
 		$this->_stderr = ($stderr) ? $stderr : STDERR;
 	}
 
-	public function print($message, $channel = ChannelType::STDOUT) {
+	public function print(string $message, int $channel = ChannelType::STDOUT) : void
+	{
 		switch($channel) {
 			case ChannelType::STDERR:
 				$this->writeStderr($message);
@@ -29,15 +32,18 @@ class Writer {
 		}
 	}
 
-	public function printLine($message, $channel = ChannelType::STDOUT) {
+	public function printLine(string $message, int $channel = ChannelType::STDOUT) : void
+	{
 		$this->print($message . "\n", $channel);
 	}
 
-	private function writeStdout($message) {
+	private function writeStdout(string $message) : void
+	{
 		fwrite($this->_stdout, $message);
 	}
 
-	private function writeStderr($message) {
+	private function writeStderr(string $message) : void
+	{
 		fwrite($this->_stderr, $message);
 	}
 }

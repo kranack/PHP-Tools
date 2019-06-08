@@ -2,19 +2,23 @@
 
 namespace Tools\File;
 
-class Folder extends AbstractFile {
+class Folder extends AbstractFile
+{
 	
-	public function getContent() {
+	public function getContent() : ?string
+	{
 		// NYI
         return null;
 	}
 
-	public function setContent($content) {
+	public function setContent(string $content) : AbstractFile
+	{
 		// NYI
     	return $this;
     }
 	
-	public function read() {
+	public function read() : array
+	{
 		$files = array_map(function($file) {
 			return new File($file);
 		}, glob($this->getPath() . DIRECTORY_SEPARATOR . "*"));
@@ -22,7 +26,8 @@ class Folder extends AbstractFile {
 		return $files;
 	}
 
-    public function save() {
+	public function save() : AbstractFile
+	{
 		// NYI
     	return $this;
     }
