@@ -16,7 +16,8 @@ class WriterTest extends TestCase
      */
     private $dir;
     
-    public function setUp() {
+	public function setUp() : void
+	{
         $this->dir = vfsStream::setup('testDir');
 
         vfsStream::newFile('out', 666)->at($this->dir);

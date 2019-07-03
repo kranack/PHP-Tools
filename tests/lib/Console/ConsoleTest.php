@@ -8,12 +8,11 @@ use Tools\Console\Console;
 class ConsoleTest extends TestCase
 {
 
-    /**
-     * @expectedException Exception
-     * @expectedExceptionMessage usage example
-     */
     public function testUsage()
     {
+		$this->expectException('Exception');
+		$this->expectExceptionMessage('usage example');
+
         $console = $this->getMockBuilder(Console::class)
                      ->setMockClassName("Console")
                      ->setMethods(['print'])

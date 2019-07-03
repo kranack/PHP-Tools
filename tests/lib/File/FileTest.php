@@ -15,7 +15,8 @@ class FileTest extends TestCase
      */
     private $dir;
 
-    public function setUp() {
+	public function setUp() : void
+	{
         $this->dir = vfsStream::setup('testDir');
     }
 
@@ -27,13 +28,12 @@ class FileTest extends TestCase
         $this->assertFalse($file->isFolder());
         $this->assertFalse($file->isLink());
     }
-
-    /**
-     * @expectedException Exception
-     * @expectedExceptionMessage File not found
-     */
+	
     public function testFileNotExists()
     {
+		$this->expectException('Exception');
+		$this->expectExceptionMessage('File not found');
+
         new File("file/not/found.pdf");
     }
 

@@ -28,7 +28,7 @@ class ParamsTest extends TestCase
         $this->assertEquals($params->int, 1);
         $this->assertTrue($params->bool);
         $this->assertEquals($params->objKey, $function);
-        $this->assertInternalType('callable', $params->objKey);
+        $this->assertIsCallable($params->objKey);
         $this->assertNull($params->nullable);
     }
 
