@@ -23,6 +23,10 @@
 
  Ask a range
 
+### Column
+
+ Convert column name to int (A --> 1, AA --> 27, ...)
+
 ### Ask
 
  Test of interactive prompt
