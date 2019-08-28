@@ -1,6 +1,6 @@
-workflow "New workflow" {
-  on = "push"
+workflow "Run composer tests" {
   resolves = ["Run Composer tests"]
+  on = "push"
 }
 
 action "Install Composer" {
