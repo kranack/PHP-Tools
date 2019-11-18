@@ -14,7 +14,7 @@ class Params
 
 	public function __construct()
 	{
-		$this->data = (object) [];
+		$this->data = static::getDefaults();
 
 		if (func_num_args() > 0) {
 			$this->parseArgs(func_get_args());
@@ -32,6 +32,16 @@ class Params
 			else if (is_object($arg) && $arg->key && $arg->value) { $this->data->{$arg->key} = $arg->value; }
 			else { $this->data->{$key} = $arg; }
 		}
+	}
+
+	public static function getDefaults() {
+		return (object) [
+			'requiredParams' => 0,
+			'optsStruct' => (object) [
+				'shortOpts'	=> '',
+				'longOpts'	=> [ ]
+			]
+		];
 	}
 
 }

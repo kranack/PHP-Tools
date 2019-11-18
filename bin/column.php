@@ -9,9 +9,17 @@ use Tools\Exec\Params;
 $callback = function($args, $opts, $console) {
 	$column = str_split($args[0]);
 
-	$values = array_map(function($column, $index) { return ($index * (ord('Z') - ord('A'))) + ord(strtoupper($column)) - ord('A') + 1; }, $column, array_keys($column));
+	$range = (ord('Z') - ord('A'));
+	$length = count($column);
 
-	$console->print(array_reduce($values, function($carry, $item) { return $carry += $item; }, 0));
+	$r = 0;
+	foreach (array_reverse($column) as $k => $col) {
+		$pos = ord(strtoupper($col)) - ord('A') + 1;
+
+		$r += ($pos * $k * $range) + $pos;
+	}
+
+	$console->print($r);
 }; 
 
 $params = new Params([
